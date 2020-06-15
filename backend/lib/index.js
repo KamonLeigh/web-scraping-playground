@@ -37,12 +37,14 @@ async function getInstagramFollowing() {
     await page.goto("https://www.instagram.com/byronleigh/?hl=en");
     await page.waitFor(60000);
 
+    
     const followers = await page.evaluate(() => {
+           const keys = ['posts', 'followers', 'following' ];
            const arr = Array.from(document.querySelectorAll("[href^='/accounts/login'] span"));
 
-          const slicedArr = arr.slice(0, 3);
+           const slicedArr = arr.slice(0, 3);
 
-          return slicedArr.map(item => item.textContent);
+          return slicedArr.map((item, i)=> ({ [keys[i]]:item.textContent }));
     });
 
      await browser.close();
