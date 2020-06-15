@@ -31,3 +31,24 @@ async function getTwitterFollowing() {
 
  
 
+async function getInstagramFollowing() {
+    const browser = await puppeteer.launch({ headless: true});
+    const page = await browser.newPage();
+    await page.goto("https://www.instagram.com/byronleigh/?hl=en");
+    await page.waitFor(60000);
+
+    const followers = await page.evaluate(() => {
+           const arr = Array.from(document.querySelectorAll("[href^='/accounts/login'] span"));
+
+          const slicedArr = arr.slice(0, 3);
+
+          return slicedArr.map(item => item.textContent);
+    });
+
+     await browser.close();
+
+        return followers
+    
+}
+
+getInstagramFollowing().then(res => console.log(res));
