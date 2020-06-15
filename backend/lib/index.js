@@ -51,4 +51,17 @@ async function getInstagramFollowing() {
     
 }
 
-getInstagramFollowing().then(res => console.log(res));
+//getInstagramFollowing().then(res => console.log(res));
+
+async function combineData() {
+    const result = await Promise.all([
+      getTwitterFollowing(),
+      getInstagramFollowing(),
+    ]);
+
+    return result;
+}
+
+combineData()
+            .then(result => console.log(result))
+            .catch(err => console.log(err))
