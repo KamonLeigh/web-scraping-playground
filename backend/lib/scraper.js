@@ -1,7 +1,7 @@
-
-
 const puppeteer = require("puppeteer");
 const db = require("../db");
+const chalk = require("chalk");
+const log = console.log;
 
 async function getTwitterFollowing() {
     const browser = await puppeteer.launch({ headless: true });
@@ -20,17 +20,9 @@ async function getTwitterFollowing() {
       return span.children[0].textContent;
     });
 
-
     await browser.close();
     return { followers, following }
 }
-
-
-
- //getTwitterFollowing().then( result => console.log(result));
-
-
- 
 
 async function getInstagramFollowing() {
     const browser = await puppeteer.launch({ headless: true});
@@ -38,7 +30,6 @@ async function getInstagramFollowing() {
     await page.goto("https://www.instagram.com/byronleigh/?hl=en");
     await page.waitFor(60000);
 
-    
     const followers = await page.evaluate(() => {
            const keys = ['posts', 'followers', 'following' ];
            const arr = Array.from(document.querySelectorAll("[href^='/accounts/login'] span"));
@@ -57,16 +48,17 @@ async function getInstagramFollowing() {
     
 }
 
-//getInstagramFollowing().then(res => console.log(res));
-
 async function combineData() {
+
+
+  try {
     const [twitterData, instagramData]= await Promise.all([
       getTwitterFollowing(),
       getInstagramFollowing(),
     ]);
 
     const twitter = { ...twitterData, date: Date.now()};
-    const instagram = { ...instagramData, data: Date.now()}
+    const instagram = { ...instagramData, date: Date.now()}
     console.log([twitter, instagram]);
     db.get('twitter')
       .push(twitter)
@@ -75,12 +67,11 @@ async function combineData() {
     db.get('instagram')
       .push(instagram)
       .write();
-      console.log('DONE!')
+      log(chalk.inverse('DONE!'));
+  } catch(e) {
+     log(chalk.red(e));
+  }
 }
-
-combineData()
-            .then(result => console.log(result))
-            .catch(err => console.log(err));
 
 
 
