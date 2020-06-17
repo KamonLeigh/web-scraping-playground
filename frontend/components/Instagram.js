@@ -1,5 +1,6 @@
 import React, { PureComponent } from "react";
 import { format } from "date-fns";
+import TertTitle from "./styles/TertiaryTitle.js"
 
 import {
   LineChart,
@@ -23,7 +24,7 @@ export default class Instagram extends PureComponent {
     // yyyy-MM-dd'T'HH:mm:ss.SSSxxx
     return (
      <section>
-     <h3>instagram</h3>
+     <TertTitle>instagram</TertTitle>
       <LineChart width={600} height={300} data={results}
         margin={{ top: 10, right: 30, left: 20, bottom: 5 }}>
         <CartesianGrid strokeDasharray="10 10" />
