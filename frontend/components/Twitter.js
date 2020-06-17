@@ -19,11 +19,12 @@ export default class Twitter extends PureComponent {
                 // yyyy-MM-dd'T'HH:mm:ss.SSSxxx
     return (
     <section>
+      <h3>twitter</h3>
       <LineChart width={600} height={300} data={results}
         margin={{ top: 10, right: 30, left: 20, bottom: 5 }}>
         <CartesianGrid strokeDasharray="10 10" />
-        <XAxis hide="true" dataKey="date" />
-        <YAxis hide="true" domain={['dataMin', 'dataMax']}/>
+        <XAxis hide={true} dataKey="date" />
+        <YAxis hide={true} domain={['dataMin', 'dataMax']}/>
         <Tooltip />
         <Legend />
         <Line type="monotone" dataKey="following" stroke="red" activeDot={{ r: 8 }}/>

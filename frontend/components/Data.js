@@ -1,15 +1,17 @@
 import Twitter from "./Twitter";
+import Instagram from "./Instagram";
 
 function Data({ data }) {
-    console.log(data);
+
     const twitter = data.twitter;
     const instagram = data.instagram;
 
     return (
-        <div>
+        <main>
             <h2>social media data</h2>
             <Twitter data={twitter}/>
-        </div>
+            <Instagram data={instagram}/>
+        </main>
         
     )
 }

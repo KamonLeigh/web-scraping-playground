@@ -64,6 +64,16 @@
       "followers": 227,
       "following": 1825,
       "date": 1592400460890
+    },
+    {
+      "followers": 227,
+      "following": 1825,
+      "date": 1592420961284
+    },
+    {
+      "followers": 227,
+      "following": 1825,
+      "date": 1592424581819
     }
   ],
   "instagram": [
@@ -71,13 +81,13 @@
       "posts": 105,
       "followers": 207,
       "following": 1617,
-      "data": 1592249551032
+      "date": 1592249551032
     },
     {
       "posts": 105,
       "followers": 207,
       "following": 1617,
-      "data": 1592257552816
+      "date": 1592257552816
     },
     {
       "posts": 105,
@@ -144,6 +154,18 @@
       "followers": 207,
       "following": 1617,
       "date": 1592400460890
+    },
+    {
+      "posts": 105,
+      "followers": 207,
+      "following": 1617,
+      "date": 1592420961284
+    },
+    {
+      "posts": 105,
+      "followers": 207,
+      "following": 1617,
+      "date": 1592424581819
     }
   ]
 }
