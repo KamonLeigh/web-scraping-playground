@@ -11,13 +11,13 @@ async function getTwitterFollowing() {
     const following = await page.evaluate(() => {
       const span = document.querySelector("[href='/kamon80/following'] span");
 
-      return span.children[0].textContent;
+      return parseInt(span.children[0].textContent.replace(",", ""));
     });
 
     const followers = await page.evaluate(() => {
       const span = document.querySelector("[href='/kamon80/followers'] span");
 
-      return span.children[0].textContent;
+      return parseInt(span.children[0].textContent.replace(",", ""));
     });
 
     await browser.close();
@@ -36,7 +36,7 @@ async function getInstagramFollowing() {
 
            const slicedArr = arr.slice(0, 3);
 
-          return slicedArr.map((item, i)=> ({ [keys[i]]:item.textContent }))
+          return slicedArr.map((item, i)=> ({ [keys[i]]: parseInt(item.textContent.replace(",","")) }))
                           .reduce((acc, item) => {
                             return {...acc, ...item}
                           }, {});
