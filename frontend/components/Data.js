@@ -1,17 +1,18 @@
 import Twitter from "./Twitter";
 import Instagram from "./Instagram";
-
+import Main from "./styles/layouts/Main";
+import SecondTitle from "./styles/SecondaryTitle";
 function Data({ data }) {
 
     const twitter = data.twitter;
     const instagram = data.instagram;
 
     return (
-        <main>
-            <h2>social media data</h2>
+        <Main>
+            <SecondTitle>data</SecondTitle>
             <Twitter data={twitter}/>
             <Instagram data={instagram}/>
-        </main>
+        </Main>
         
     )
 }

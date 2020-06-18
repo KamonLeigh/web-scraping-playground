@@ -1,12 +1,13 @@
 import Data from "../components/Data"
-import Container from "../components/styles/Container";
+import Container from "../components/styles/layouts/Container";
+import Title from "../components/styles/Title";
 
 function HomePage({data}) {
 
 
     return (
         <Container>
-            <h1>Home page!!!!</h1>
+            <Title>social media analysis</Title>
             <Data data={data}/>
         </Container>
     )
